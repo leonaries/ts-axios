@@ -8,7 +8,7 @@ export type Method = 'get' |  'GET'
 
 export interface AxiosRequestConfig {
   url:string,
-  methods?:Method,
-  data?:string,
+  method?:Method,
+  data?:any,
   params?:any
 }
