@@ -1,5 +1,5 @@
 import { type } from "os";
-import { isDate , isObject } from './util.ts'
+import { isDate , isPlainObject } from './util.ts'
 
 function encode(val:string):string {
   return encodeURIComponent(val)
@@ -35,8 +35,8 @@ export function buildURL(url:string, params?:any):string {
     values.forEach((val) => {
         if(isDate(val)) {
           val = val.toISOString()
-        }else if(isObject(val)) {
-          val.JSON.stringify(val)
+        }else if(isPlainObject(val)) {
+          val = JSON.stringify(val)
         }
         parts.push(`${encode(key)}=${encode(val)}`)
     })
