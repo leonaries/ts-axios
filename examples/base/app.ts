@@ -78,14 +78,16 @@ import axios from '../../src/index'
 //   data: arr
 // })
 
-// axios({
-//   method: 'post',
-//   url: '/base/post',
-//   data: {
-//     a: 1,
-//     b: 2
-//   }
-// })
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    a: 1,
+    b: 2
+  }
+}).then((res) =>{
+  console.log('res-------', res)
+})
 
 axios({
   method: 'post',
@@ -94,10 +96,13 @@ axios({
     a: 1,
     b: 2
   },
+  responseType:'json',
   headers: {
     'content-type':'application/json;',
     'Accept':'application/json,text/plain,*/*'
   }
+}).then((res) => {
+   console.log('res2---------', res)
 })
 
 // const paramsString = 'q=URLUtils.searchParams&topic=api'
